@@ -75,7 +75,18 @@ class Program
 
     var selectedRecipe = recipes.Find(r => r.Title.Equals(selectedTitle, StringComparison.OrdinalIgnoreCase));
 
-    
+    if (selectedRecipe != null)
+    {
+      Console.WriteLine($"\nTitle: {selectedRecipe.Title}");
+      Console.WriteLine("Ingredients");
+      foreach (var ingredient in selectedRecipe.Ingredients)
+      {
+        Console.WriteLine($"- {ingredient.Trim()}");
+        
+      }
+    }
+
+
 
   }
 
