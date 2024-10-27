@@ -12,20 +12,6 @@ class Program
 
     RecipeRepository repository = new RecipeRepository();
 
-    List<Recipe> recipes = new List<Recipe>
-    {
-      new Recipe
-      {
-        Title = "Pancakes",
-        Ingredients = new List<string> {"Flour", "Milk", "Eggs", "Sugar"},
-        Instructions = "mix and cook"
-
-      }
-    };
-      
-    repository.SaveRecipes(recipes);
-    Console.WriteLine("Recipe saved.");
-
     while (true)
     {
       Console.WriteLine("\nRecipe Manager");

@@ -8,5 +8,13 @@
       "Sugar"
     ],
     "Instructions": "mix and cook"
+  },
+  {
+    "Title": "milkshake",
+    "Ingredients": [
+      "milk",
+      "chocolate"
+    ],
+    "Instructions": "mix and enjoy"
   }
 ]
