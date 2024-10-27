@@ -56,6 +56,9 @@ class Program
       Console.WriteLine("Enter ingredients (comma separated):");
       string ingredientsInput = Console.ReadLine();
       var ingredients = new List<string>(ingredientsInput.Split(','));
+
+      Console.WriteLine("Enter instructions:");
+      string instructions = Console.ReadLine();
     } 
       
 
