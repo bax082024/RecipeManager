@@ -15,6 +15,17 @@ namespace RecipeManager.Data
       string json = JsonConvert.SerializeObject(recipes, Formatting.Indented);
       File.WriteAllText(filePath, json);
     }
+
+    public List<Recipe> LoadRecipes()
+    {
+      if (!File.Exists(filePath))
+      {
+        return new List<Recipe>();
+      }
+
+      string json = File.ReadAllText(filePath);
+      return JsonConvert.DeserializeObject<List<Recipe>>(json) ?? new List<Recipe>();
+    }
   }
 
 }
