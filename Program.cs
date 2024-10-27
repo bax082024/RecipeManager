@@ -24,6 +24,14 @@ class Program
     repository.SaveRecipes(recipes);
     Console.WriteLine("Recipe saved.");
 
+    while (true)
+    {
+      Console.WriteLine("\nRecipe Manager");
+      Console.WriteLine("1. View Recipes");
+      Console.WriteLine("2. Add Recipe");
+      
+    }
+
     var loadedRecipes = repository.LoadRecipes();
     Console.WriteLine("Loaded Recipes:");
     foreach (var recipe in loadedRecipes)
