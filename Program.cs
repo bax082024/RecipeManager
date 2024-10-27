@@ -1,7 +1,9 @@
 ﻿using RecipeManager.Models;
 using RecipeManager.Data;
 using System.Collections.Generic;
+using System.Linq;
 using System;
+
 
 class Program
 {
@@ -29,7 +31,8 @@ class Program
       Console.WriteLine("\nRecipe Manager");
       Console.WriteLine("1. View Recipes");
       Console.WriteLine("2. Add Recipe");
-      Console.WriteLine("3. Exit");
+      Console.WriteLine("3. Delete Recipe");
+      Console.WriteLine("4. Exit");
       Console.WriteLine("Choose an option: ");
 
       string? choice = Console.ReadLine();
@@ -43,6 +46,9 @@ class Program
           AddRecipe(repository);
           break;
         case "3":
+          DeleteRecipe(repository);
+          break;
+        case "4":
           Console.WriteLine("Goodbye.");
           return;
         default:
@@ -129,7 +135,7 @@ class Program
     string? titleToDelete = Console.ReadLine();
 
     var recipes = repository.LoadRecipes();
-    var recipeToDelete = Recipe.Find(r => r.Title != null && r.Title.Equals(titleToDelete, StringComparison.OrdinalIgnoreCase));
+    var recipeToDelete = recipes.Find(r => r.Title != null && r.Title.Equals(titleToDelete, StringComparison.OrdinalIgnoreCase));
 
     if (recipeToDelete != null)
     {
