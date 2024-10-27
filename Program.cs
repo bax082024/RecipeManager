@@ -70,6 +70,13 @@ class Program
     {
       Console.WriteLine($"- {recipe.Title}");
     }
+
+    Console.WriteLine("\nEnter name of recipe to view details, or press Enter to return to menu:");
+
+    var selectedRecipe = recipes.Find(r => r.Title.Equals(selectedTitle, StringComparison.OrdinalIgnoreCase));
+
+    
+
   }
 
   static void AddRecipe(RecipeRepository repository)
