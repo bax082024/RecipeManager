@@ -10,12 +10,26 @@ class Program
 
     RecipeRepository repository = new RecipeRepository();
 
-    Recipe testRecipe = new Recipe
+    List<Recipe> recipes = new List<Recipe>
     {
-      Title = "Pancakes",
-      Ingredients = new List<string> {"Flour", "Milk", "Eggs", "Sugar"},
-      Instructions = "mix and cook"
+      new Recipe
+      {
+        Title = "Pancakes",
+        Ingredients = new List<string> {"Flour", "Milk", "Eggs", "Sugar"},
+        Instructions = "mix and cook"
+
+      }
     };
+      
+    repository.SaveRecipes(recipes);
+    Console.WriteLine("Recipe saved.");
+
+    var LoadRecipes = repository.LoadRecipes();
+    Console.WriteLine("Loaded Recipes:");
+    foreach (var recipe in loadedRecipes)
+    {
+      Console.WriteLine($"Title: {recipe.Title}");
+    }
 
     Console.WriteLine($"Recipe: {testRecipe.Title}");
   }
