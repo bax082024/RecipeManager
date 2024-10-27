@@ -32,7 +32,7 @@ class Program
       Console.WriteLine("3. Exit");
       Console.WriteLine("Choose an option: ");
 
-      string choice = Console.ReadLine();
+      string? choice = Console.ReadLine();
 
       switch (choice)
       {
@@ -58,7 +58,7 @@ class Program
   static void ViewRecipes(RecipeRepository repository)
   {
     var recipes = repository.LoadRecipes();
-    Console.WriteLine();
+    Console.WriteLine("All Recipes");
 
     if (recipes.Count == 0)
     {
@@ -72,6 +72,7 @@ class Program
     }
 
     Console.WriteLine("\nEnter name of recipe to view details, or press Enter to return to menu:");
+    string? selectedTitle = Console.ReadLine();
 
     var selectedRecipe = recipes.Find(r => r.Title.Equals(selectedTitle, StringComparison.OrdinalIgnoreCase));
 
@@ -82,8 +83,14 @@ class Program
       foreach (var ingredient in selectedRecipe.Ingredients)
       {
         Console.WriteLine($"- {ingredient.Trim()}");
-        
       }
+
+      Console.WriteLine("Instructions");
+      Console.WriteLine(selectedRecipe.Instructions);
+    }
+    else if (!string.IsNullOrEmpty(selectedTitle))
+    {
+      Console.WriteLine("Recipe not found");
     }
 
 
@@ -93,14 +100,14 @@ class Program
   static void AddRecipe(RecipeRepository repository)
   {
     Console.WriteLine("Enter recipe title:");
-    string title = Console.ReadLine();
+    string? title = Console.ReadLine();
 
     Console.WriteLine("Enter ingredients (comma separated):");
-    string ingredientsInput = Console.ReadLine();
+    string? ingredientsInput = Console.ReadLine();
     var ingredients = new List<string>(ingredientsInput.Split(','));
 
     Console.WriteLine("Enter instructions:");
-    string instructions = Console.ReadLine();
+    string? instructions = Console.ReadLine();
 
     Recipe newRecipe = new Recipe
     {
