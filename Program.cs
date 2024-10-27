@@ -31,5 +31,22 @@ class Program
       Console.WriteLine($"Title: {recipe.Title}");
     }
 
+    static void ViewRecipes(RecipeRepository repository)
+    {
+      var recipes = repository.LoadRecipes();
+      Console.WriteLine();
+
+      if (recipes.Count == 0)
+      {
+        Console.WriteLine("No Recipes Found!");
+        return;
+      }
+
+      foreach (var recipe in recipes)
+      {
+        Console.WriteLine($"- {recipe.Title}");
+      }
+    }
+
   }
 }
