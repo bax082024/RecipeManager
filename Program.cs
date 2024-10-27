@@ -151,6 +151,14 @@ class Program
       if (!string.IsNullOrEmpty(newTitle)) recipeToEdit.Title = newTitle;
     }
 
+    Console.WriteLine("Current ingredients: " + string.Join(", ", recipeToEdit.Ingredients));
+    Console.Write("Enter new ingredients ( seperate with comma. or press Enter to keep current ingredients)");
+    string? newIngredients = Console.ReadLine();
+    if (!string.IsNullOrEmpty(newIngredients))
+    {
+      recipeToEdit.Ingredients = new List<string>(newIngredients.Split(',').Select(i => i.Trim()));
+    }
+
   }
       
 
