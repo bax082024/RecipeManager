@@ -59,6 +59,13 @@ class Program
 
       Console.WriteLine("Enter instructions:");
       string instructions = Console.ReadLine();
+
+      Recipe newRecipe = new Recipe
+      {
+        Title = title,
+        Ingredients = ingredients,
+        Instructions = instructions
+      };
     } 
       
 
