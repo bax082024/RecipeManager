@@ -122,6 +122,15 @@ class Program
 
     Console.WriteLine("Recipe added");
   } 
+
+  static void DeleteRecipe(RecipeRepository repository)
+  {
+    Console.WriteLine("Enter the title of the recipe you want to delete:");
+    string? titleToDelete = Console.ReadLine();
+
+    
+
+  }
       
 
   
