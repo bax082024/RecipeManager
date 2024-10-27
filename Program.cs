@@ -24,13 +24,12 @@ class Program
     repository.SaveRecipes(recipes);
     Console.WriteLine("Recipe saved.");
 
-    var LoadRecipes = repository.LoadRecipes();
+    var loadedRecipes = repository.LoadRecipes();
     Console.WriteLine("Loaded Recipes:");
     foreach (var recipe in loadedRecipes)
     {
       Console.WriteLine($"Title: {recipe.Title}");
     }
 
-    Console.WriteLine($"Recipe: {testRecipe.Title}");
   }
 }
