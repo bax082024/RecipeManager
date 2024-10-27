@@ -3,10 +3,18 @@
 
 ## Introduction
 
-- I made this to practice C# and to practice with lists and data management.
-- It has view, add, delete functions and i will add edit to complete the CRUD operation.
+- I made this to practice C# and to practice with lists and data management (CRUD).
+- It has view, add, delete and edit functions, it also stores the data in json.
 
 
 
+### How to use
 
-package Newtonsoft.Json
+- dotnet run
+- follow instructions on screen to add, edit, view or delete 
+
+
+
+**Package used**
+
+ - Newtonsoft.Json
