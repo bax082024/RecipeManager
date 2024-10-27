@@ -74,7 +74,7 @@ class Program
     Console.WriteLine("\nEnter name of recipe to view details, or press Enter to return to menu:");
     string? selectedTitle = Console.ReadLine();
 
-    var selectedRecipe = recipes.Find(r => r.Title.Equals(selectedTitle, StringComparison.OrdinalIgnoreCase));
+    var selectedRecipe = recipes.Find(r => r.Title != null && r.Title.Equals(selectedTitle, StringComparison.OrdinalIgnoreCase));
 
     if (selectedRecipe != null)
     {
@@ -104,7 +104,7 @@ class Program
 
     Console.WriteLine("Enter ingredients (comma separated):");
     string? ingredientsInput = Console.ReadLine();
-    var ingredients = new List<string>(ingredientsInput.Split(','));
+    var ingredients = new List<string>(ingredientsInput?.Split(',') ?? Array.Empty<string>());
 
     Console.WriteLine("Enter instructions:");
     string? instructions = Console.ReadLine();
