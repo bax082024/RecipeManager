@@ -128,8 +128,19 @@ class Program
     Console.WriteLine("Enter the title of the recipe you want to delete:");
     string? titleToDelete = Console.ReadLine();
 
-    
+    var recipes = repository.LoadRecipes();
+    var recipeToDelete = Recipe.Find(r => r.Title != null && r.Title.Equals(titleToDelete, StringComparison.OrdinalIgnoreCase));
 
+    if (recipeToDelete != null)
+    {
+      recipes.Remove(recipeToDelete);
+      repository.SaveRecipes(recipes);
+      Console.WriteLine("Recipe Deleted Succsessfully!");
+    }
+    else
+    {
+      Console.WriteLine("Recipe Not Found!");
+    }
   }
       
 
