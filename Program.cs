@@ -48,5 +48,11 @@ class Program
       }
     }
 
+    static void AddRecipe(RecipeRepository repository)
+    {
+      Console.WriteLine("Enter recipe title:");
+      string title = Console.ReadLine();
+    }
+
   }
 }
