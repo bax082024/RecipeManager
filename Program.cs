@@ -33,58 +33,71 @@ class Program
       Console.WriteLine("Choose an option: ");
 
       string choice = Console.ReadLine();
-    }
 
-    var loadedRecipes = repository.LoadRecipes();
-    Console.WriteLine("Loaded Recipes:");
-    foreach (var recipe in loadedRecipes)
-    {
-      Console.WriteLine($"Title: {recipe.Title}");
-    }
-
-    static void ViewRecipes(RecipeRepository repository)
-    {
-      var recipes = repository.LoadRecipes();
-      Console.WriteLine();
-
-      if (recipes.Count == 0)
+      switch (choice)
       {
-        Console.WriteLine("No Recipes Found!");
-        return;
-      }
+        case "1":
+          ViewRecipes(repository);
+          break;
+        case "2":
+          AddRecipe(repository);
+          break;
+        case "3":
+          Console.WriteLine("Goodbye.");
+          return;
+        default:
+          Console.WriteLine("Invalid choice, try again.");
+          break;
 
-      foreach (var recipe in recipes)
-      {
-        Console.WriteLine($"- {recipe.Title}");
       }
     }
+  }
+    
+    
 
-    static void AddRecipe(RecipeRepository repository)
+  static void ViewRecipes(RecipeRepository repository)
+  {
+    var recipes = repository.LoadRecipes();
+    Console.WriteLine();
+
+    if (recipes.Count == 0)
     {
-      Console.WriteLine("Enter recipe title:");
-      string title = Console.ReadLine();
+      Console.WriteLine("No Recipes Found!");
+      return;
+    }
 
-      Console.WriteLine("Enter ingredients (comma separated):");
-      string ingredientsInput = Console.ReadLine();
-      var ingredients = new List<string>(ingredientsInput.Split(','));
+    foreach (var recipe in recipes)
+    {
+      Console.WriteLine($"- {recipe.Title}");
+    }
+  }
 
-      Console.WriteLine("Enter instructions:");
-      string instructions = Console.ReadLine();
+  static void AddRecipe(RecipeRepository repository)
+  {
+    Console.WriteLine("Enter recipe title:");
+    string title = Console.ReadLine();
 
-      Recipe newRecipe = new Recipe
-      {
-        Title = title,
-        Ingredients = ingredients,
-        Instructions = instructions
-      };
+    Console.WriteLine("Enter ingredients (comma separated):");
+    string ingredientsInput = Console.ReadLine();
+    var ingredients = new List<string>(ingredientsInput.Split(','));
 
-      var recipes = repository.LoadRecipes();
-      recipes.Add(newRecipe);
-      repository.SaveRecipes(recipes);
+    Console.WriteLine("Enter instructions:");
+    string instructions = Console.ReadLine();
 
-      Console.WriteLine("Recipe added");
-    } 
+    Recipe newRecipe = new Recipe
+    {
+      Title = title,
+      Ingredients = ingredients,
+      Instructions = instructions
+    };
+
+    var recipes = repository.LoadRecipes();
+    recipes.Add(newRecipe);
+    repository.SaveRecipes(recipes);
+
+    Console.WriteLine("Recipe added");
+  } 
       
 
-  }
+  
 }
