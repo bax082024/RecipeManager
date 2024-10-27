@@ -66,6 +66,12 @@ class Program
         Ingredients = ingredients,
         Instructions = instructions
       };
+
+      var recipes = repository.LoadRecipes();
+      recipes.Add(newRecipe);
+      repository.SaveRecipes(recipes);
+
+      Console.WriteLine("Recipe added");
     } 
       
 
