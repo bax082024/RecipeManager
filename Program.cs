@@ -134,6 +134,18 @@ class Program
       Console.WriteLine("Recipe Not Found!");
     }
   }
+
+  static void EditRecipe(RecipeRepository repository)
+  {
+    Console.WriteLine("Title of the recipe you want to edit:");
+    string? titleToEdit = Console.ReadLine();
+
+    var recipes = repository.LoadRecipes();
+    var recipeToEdit = recipes.Find(r => r.Title != null && r.Title.Equals(titleToEdit, StringComparison.OrdinalIgnoreCase));
+
+    
+
+  }
       
 
   
