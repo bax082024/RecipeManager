@@ -17,8 +17,9 @@ class Program
       Console.WriteLine("\nRecipe Manager");
       Console.WriteLine("1. View Recipes");
       Console.WriteLine("2. Add Recipe");
-      Console.WriteLine("3. Delete Recipe");
-      Console.WriteLine("4. Exit");
+      Console.WriteLine("3. Edit Recipe");
+      Console.WriteLine("4. Delete Recipe");
+      Console.WriteLine("5. Exit");
       Console.WriteLine("Choose an option: ");
 
       string? choice = Console.ReadLine();
@@ -32,9 +33,12 @@ class Program
           AddRecipe(repository);
           break;
         case "3":
-          DeleteRecipe(repository);
+          EditRecipe(repository);
           break;
         case "4":
+          DeleteRecipe(repository);
+          break;
+        case "5":
           Console.WriteLine("Goodbye.");
           return;
         default:
