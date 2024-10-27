@@ -29,7 +29,10 @@ class Program
       Console.WriteLine("\nRecipe Manager");
       Console.WriteLine("1. View Recipes");
       Console.WriteLine("2. Add Recipe");
-      
+      Console.WriteLine("3. Exit");
+      Console.WriteLine("Choose an option: ");
+
+      string choice = Console.ReadLine();
     }
 
     var loadedRecipes = repository.LoadRecipes();
