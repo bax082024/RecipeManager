@@ -143,7 +143,13 @@ class Program
     var recipes = repository.LoadRecipes();
     var recipeToEdit = recipes.Find(r => r.Title != null && r.Title.Equals(titleToEdit, StringComparison.OrdinalIgnoreCase));
 
-    
+    if (recipeToEdit != null)
+    {
+      Console.WriteLine($"Current tirle: {recipeToEdit.Title}");
+      Console.Write("Enter New Title (press Enter to keep current title):");
+      string? newTitle = Console.ReadLine();
+      if (!string.IsNullOrEmpty(newTitle)) recipeToEdit.Title = newTitle;
+    }
 
   }
       
