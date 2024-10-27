@@ -149,15 +149,30 @@ class Program
       Console.Write("Enter New Title (press Enter to keep current title):");
       string? newTitle = Console.ReadLine();
       if (!string.IsNullOrEmpty(newTitle)) recipeToEdit.Title = newTitle;
+    
+
+      Console.WriteLine("Current ingredients: " + string.Join(", ", recipeToEdit.Ingredients));
+      Console.Write("Enter new ingredients ( seperate with comma. or press Enter to keep current ingredients)");
+      string? newIngredients = Console.ReadLine();
+      if (!string.IsNullOrEmpty(newIngredients))
+      {
+        recipeToEdit.Ingredients = new List<string>(newIngredients.Split(',').Select(i => i.Trim()));
+      }
+
+      Console.WriteLine($"Current instructions: {recipeToEdit.Instructions}");
+      Console.Write("Enter new instructions (press Enter to keep current instructions)");
+      string? newInstructions = Console.ReadLine();
+      if (string.IsNullOrEmpty(newInstructions)) recipeToEdit.Instructions = newInstructions;
+
+      repository.SaveRecipes(recipes);
+      Console.WriteLine("recipe succsefully updated!");
+    }
+    else
+    {
+      Console.WriteLine("Recipe not found!");
     }
 
-    Console.WriteLine("Current ingredients: " + string.Join(", ", recipeToEdit.Ingredients));
-    Console.Write("Enter new ingredients ( seperate with comma. or press Enter to keep current ingredients)");
-    string? newIngredients = Console.ReadLine();
-    if (!string.IsNullOrEmpty(newIngredients))
-    {
-      recipeToEdit.Ingredients = new List<string>(newIngredients.Split(',').Select(i => i.Trim()));
-    }
+
 
   }
       
